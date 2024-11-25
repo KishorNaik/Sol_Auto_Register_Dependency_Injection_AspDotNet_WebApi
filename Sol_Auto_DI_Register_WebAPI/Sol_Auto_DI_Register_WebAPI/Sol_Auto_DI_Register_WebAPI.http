@@ -1,0 +1,6 @@
+@Sol_Auto_DI_Register_WebAPI_HostAddress = http://localhost:5189
+
+GET {{Sol_Auto_DI_Register_WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
