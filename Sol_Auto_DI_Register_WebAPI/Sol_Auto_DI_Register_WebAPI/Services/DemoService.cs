@@ -1,4 +1,4 @@
-﻿using AutoDependencyRegistration.Attributes;
+﻿using sorovi.DependencyInjection.AutoRegister;
 
 namespace Sol_Auto_DI_Register_WebAPI.Services;
 
@@ -7,7 +7,7 @@ public interface ISingletonDemo
     void DoSomething();
 }
 
-[RegisterClassAsSingleton]
+[SingletonService(typeof(ISingletonDemo))]
 public class SingletonDemo : ISingletonDemo
 {
     void ISingletonDemo.DoSomething()
@@ -21,7 +21,7 @@ public interface IScopedDemo
     void DoSomething();
 }
 
-[RegisterClassAsScoped]
+[ScopedService(typeof(IScopedDemo))]
 public class ScopedDemo : IScopedDemo
 {
     void IScopedDemo.DoSomething()
@@ -35,7 +35,7 @@ public interface ITransientDemo
     void DoSomething();
 }
 
-[RegisterClassAsTransient]
+[TransientService(typeof(ITransientDemo))]
 public class TransientDemo : ITransientDemo
 {
     void ITransientDemo.DoSomething()

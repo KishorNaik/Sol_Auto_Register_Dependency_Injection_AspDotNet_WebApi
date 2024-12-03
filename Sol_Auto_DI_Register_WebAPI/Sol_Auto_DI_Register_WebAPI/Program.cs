@@ -1,5 +1,5 @@
-using AutoDependencyRegistration;
 using Scalar.AspNetCore;
+using sorovi.DependencyInjection.AutoRegister;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +9,11 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AutoRegisterDependencies();
+builder.Services.RegisterServices((option) =>
+{
+    option.WithAssemblies(typeof(Program).Assembly);
+    return option;
+});
 
 var app = builder.Build();
 
